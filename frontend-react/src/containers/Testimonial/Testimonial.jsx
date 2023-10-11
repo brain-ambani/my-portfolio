@@ -25,12 +25,14 @@ const Testimonial = () => {
   }, []);
   return (
     <>
-      <div className="app__testimonial-item app__flex">
+      {/* <div className="app__testimonial-item app__flex">
         <img
           src={UrlFor(testimonials[currentIndex].imgurl)}
           alt="testimonial"
         />
-      </div>
+      </div> */}
+      <h1>Testimonials</h1>
+      {/* create the testimonials schema in sanity */}
     </>
   );
 };
