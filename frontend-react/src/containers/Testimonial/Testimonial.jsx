@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
-// import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-// import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { motion } from "framer-motion";
 
-// import { AppWrap, MotionWrap } from '../../wrapper';
-// import { UrlFor, client } from '../../client';
-// import './Testimonial.scss';
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { UrlFor, client } from "../../client";
+import "./Testimonial.scss";
 
 const Testimonial = () => {
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const [testimonials, setTestimonials] = useState([]);
-  // const [brands, setBrands] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // const handleClick = (index) => {
   //   setCurrentIndex(index);
   // };
 
-  // useEffect(() => {
-  //   const query = '*[_type == "testimonials"]';
-  //   const brandsQuery = '*[_type == "brands"]';
+  useEffect(() => {
+    const query = '*[_type == "testimonials"]';
+    const brandsQuery = '*[_type == "brands"]';
 
-  //   client.fetch(query).then((data) => {
-  //     setTestimonials(data);
-  //   });
+    client.fetch(query).then((data) => {
+      setTestimonials(data);
+    });
 
-  //   client.fetch(brandsQuery).then((data) => {
-  //     setBrands(data);
-  //   });
-  // }, []);
+    client.fetch(brandsQuery).then((data) => {
+      setBrands(data);
+    });
+  }, []);
 
-  // const test = testimonials[currentIndex];
+  const test = testimonials[currentIndex];
 
   return (
     <>
@@ -72,10 +72,8 @@ const Testimonial = () => {
   );
 };
 
-// export default AppWrap(
-//   MotionWrap(Testimonial, 'app__testimonial'),
-//   'testimonial',
-//   'app__primarybg',
-// );
-
-export default Testimonial;
+export default AppWrap(
+  MotionWrap(Testimonial, "app__testimonial"),
+  "testimonial",
+  "app__primarybg"
+);
