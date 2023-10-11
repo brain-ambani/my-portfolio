@@ -8,7 +8,7 @@ import "./Testimonial.scss";
 
 const Testimonial = () => {
   const [brands, setBrands] = useState([]);
-  const [testimonial, setTestimonial] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -16,14 +16,23 @@ const Testimonial = () => {
     const brandsQuery = '*[_type == "brands"]';
 
     client.fetch(query).then((data) => {
-      setTestimonial(data);
+      setTestimonials(data);
     });
 
     client.fetch(brandsQuery).then((data) => {
       setBrands(data);
     });
   }, []);
-  return <div>Testimonials</div>;
+  return (
+    <>
+      <div className="app__testimonial-item app__flex">
+        <img
+          src={UrlFor(testimonials[currentIndex].imgurl)}
+          alt="testimonial"
+        />
+      </div>
+    </>
+  );
 };
 
 export default AppWrap(
